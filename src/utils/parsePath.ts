@@ -37,6 +37,8 @@ const parsePath = (path: Paths, components: Components) => {
       item.requestType = findType(sub['requestBody'], components)
 
       item.responseType = findType(sub['responses'], components)
+      console.log(item);
+console.log('-------------------1111111111');
 
       allPath.push(item as pathItemInfo)
     })
