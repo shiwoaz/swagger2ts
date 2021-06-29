@@ -7,13 +7,19 @@ export interface pathItemInfo {
   requestType: any
   responseType: any
   url: string
+  method: string
+}
+
+export interface resAllPath extends pathItemInfo {
+  requestTypeText: string;
+  responseTypeText: string;
 }
 
 const parsePath = (path: Paths, components: Components) => {
 
   const keys = Object.keys(path)
 
-  console.log(keys);
+  // console.log(keys);
 
   const allPath: pathItemInfo[] = []
 
@@ -31,14 +37,13 @@ const parsePath = (path: Paths, components: Components) => {
       item.url = key
       item.summary = sub['summary']
       item.tags = sub['tags'][0]
-
-      console.log(sub);
+      item.method = subItem
 
       item.requestType = findType(sub['requestBody'], components)
 
       item.responseType = findType(sub['responses'], components)
-      console.log(item);
-console.log('-------------------1111111111');
+      // console.log(item);
+      // console.log('-------------------1111111111');
 
       allPath.push(item as pathItemInfo)
     })

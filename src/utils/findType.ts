@@ -4,7 +4,7 @@ import typeTranform from "./typeTranform";
 const findType = (type: any, source: Schemas) => {
 
   if (typeof type === 'undefined') return
-  console.log("--------------------------------------------------")
+  // console.log("--------------------------------------------------")
 
   // console.dir(type['content']);
 
@@ -16,7 +16,7 @@ const findType = (type: any, source: Schemas) => {
 
   if (type['content']) {
 
-    Object.keys(type['content']).forEach(key => {
+    Object.keys(type['content']).some(key => {
       if (type['content'][key]['schema']['$ref']) {
 
         const t = type['content'][key]['schema']['$ref'] as string
@@ -25,7 +25,7 @@ const findType = (type: any, source: Schemas) => {
 
         //@ts-ignore
         typeArr = typeTranform(source['schemas'][typeTitle])
-
+        return false
       } else {
         console.log('none1');
       }

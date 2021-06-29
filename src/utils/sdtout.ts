@@ -15,4 +15,8 @@ const ERROR = (text: string) => {
   process.exit(0)
 }
 
-export { WARNING, ERROR }
+const SUCESS = (text: string) => {
+  console.log(chalk.greenBright(`${outType['ok']} [SUCESS] ${text}`));
+}
+
+export { WARNING, ERROR, SUCESS }

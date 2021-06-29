@@ -1,8 +1,10 @@
 import { configObject } from "./type";
+import createFunc from "./utils/createFunc";
 import genCode from "./utils/gen";
 import parsePath from "./utils/parsePath";
 import fetchSwaggerJson from "./utils/request";
-import { ERROR, WARNING } from "./utils/sdtout";
+import { saveFunc, saveType } from "./utils/saveFile";
+import { ERROR, SUCESS, WARNING } from "./utils/sdtout";
 import separate from "./utils/sparate";
 
 const HELPTXT = `
@@ -55,9 +57,14 @@ const HELPTXT = `
 
     const allPath = parsePath(paths, components)
 
-    console.log(allPath);
+    const allRes = genCode(allPath)
 
-    genCode(allPath)
+    const funcText = createFunc(allRes)
+
+    saveFunc(funcText)
+    saveType(allRes)
+
+    SUCESS(`File write sucessful ! , please copy the "type.d.ts" and "service.ts" from "dist" dir, and import request from "umi-request"`)
   })
 
 

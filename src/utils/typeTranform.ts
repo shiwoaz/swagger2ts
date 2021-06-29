@@ -33,7 +33,7 @@ const findObject = (obj: any) => {
       description?: string,
       name?: string
     } = {}
-    console.log(oi, 'ioioio', item);
+    // console.log(oi, 'ioioio', item);
 
     objItem.type = type2ts(oi['type'])
     objItem.description = oi['description'] ?? "none"
