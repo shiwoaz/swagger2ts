@@ -3,16 +3,15 @@ import { pathItemInfo } from "./parsePath";
 
 const genCode = (allPath: pathItemInfo[]) => {
   return allPath.map(item => {
-    // console.log("9999999999999999");
 
-    // console.log(item);
-    // console.log("9999999999999999");
-    const { url, requestType, responseType } = item
+    const { url, requestType, responseType, summary, tags } = item
+
+    const typeName = `${tags} - ${summary}  `
 
     const name = url.split('/').slice(-1)
 
-    const requestTypeText = createType(requestType ?? [], name + "ReqType")
-    const responseTypeText = createType(responseType ?? [], name + "ResType")
+    const requestTypeText = createType(requestType ?? [], name + "ReqType", typeName + "请求结构")
+    const responseTypeText = createType(responseType ?? [], name + "ResType", typeName + "响应结构")
 
     return { ...item, requestTypeText, responseTypeText }
   })

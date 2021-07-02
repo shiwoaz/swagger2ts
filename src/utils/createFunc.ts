@@ -9,15 +9,17 @@ const createFunc = (allPath: resAllPath[]) => {
   const FuncSourceFile = ts.createSourceFile('Func', '', ts.ScriptTarget.Latest, false, ts.ScriptKind.TS)
 
 
-  const funcAst = allPath.map(({ requestType, url, responseType, method }) => {
+  const funcAst = allPath.map(({ requestType, url, responseType, method, summary, tags }) => {
 
     const params = hasParams(requestType)
 
-    const ret = hasParams(responseType)
+    // const ret = hasParams(responseType)
+
+    const typeName = `${tags} - ${summary}  `
 
     const name = url.split('/').slice(-1)[0].replace(/{|}/g, '')
 
-    return factory.createVariableStatement(
+    const ast = factory.createVariableStatement(
       [factory.createModifier(ts.SyntaxKind.ExportKeyword)],
       factory.createVariableDeclarationList(
         [
@@ -62,6 +64,10 @@ const createFunc = (allPath: resAllPath[]) => {
         ], ts.NodeFlags.Const
       )
     )
+
+    ts.addSyntheticLeadingComment(ast, ts.SyntaxKind.MultiLineCommentTrivia, typeName, true)
+
+    return ast
   })
 
   // console.log(printer.printNode(ts.EmitHint.Unspecified, funcAst[0], FuncSourceFile));
