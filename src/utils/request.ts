@@ -7,7 +7,7 @@ type fetchSwaggerJsonFunc = (config: configObject) => Promise<swagger>
 
 const fetchSwaggerJson: fetchSwaggerJsonFunc = async ({ url }) => {
 
-  const spin = ora("Start fetch swagger url").start()
+  const spin = ora("Start fetch swagger url \r").start()
 
   try {
 

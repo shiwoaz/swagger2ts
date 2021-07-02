@@ -1,9 +1,21 @@
 import path from 'path'
 import fs from 'fs'
 import { resAllPath } from './parsePath';
-import { ERROR } from './sdtout';
+import { ERROR, SUCESS, WARNING } from './sdtout';
 
-const filePath = path.join(__dirname, '../../dist/')
+const filePath = path.join(process.cwd(), './dist/');
+
+(
+  function () {
+    fs.stat(filePath, (err => {
+      if (err) {
+        WARNING("dist folder don't exit, create now")
+        fs.mkdirSync(filePath)
+        SUCESS(`${filePath} successfully created!`)
+      }
+    }))
+  }
+)()
 
 console.log(filePath);
 

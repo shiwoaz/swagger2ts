@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { configObject } from "./type";
 import createFunc from "./utils/createFunc";
 import genCode from "./utils/gen";

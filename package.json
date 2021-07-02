@@ -1,6 +1,6 @@
 {
   "name": "swagger2ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate TypeScript service code from swagger",
   "main": "lib/index.js",
   "dependencies": {
@@ -64,6 +64,9 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "s2t": "node lib/index.js"
+  },
+  "bin": {
+    "s2t": "lib/index.js"
   },
   "repository": {
     "type": "git",
