@@ -3,11 +3,7 @@ import ts, { factory } from 'typescript'
 
 const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed })
 
-const createType = (arr: Array<any>, typeName: string) => {
-
-  // console.log(888888888888888);
-  // console.log(arr, typeName);
-  // console.log(888888888888888);
+const createType = (arr: Array<any>, typeName: string, typeComment: string) => {
 
   const typeSourceFile = ts.createSourceFile(typeName, '', ts.ScriptTarget.Latest, false, ts.ScriptKind.TS)
 
@@ -25,6 +21,8 @@ const createType = (arr: Array<any>, typeName: string) => {
       ))
     )
   )
+
+  ts.addSyntheticLeadingComment(typeAst, ts.SyntaxKind.MultiLineCommentTrivia, typeComment, true)
 
   // console.log(printer.printNode(ts.EmitHint.Unspecified, typeAst, typeSourceFile));
 

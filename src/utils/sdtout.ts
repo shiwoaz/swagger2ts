@@ -1,9 +1,10 @@
 import chalk from 'chalk'
 
-enum outType {
-  error = "📕",
-  warning = "⚠",
-  ok = "📗",
+const outType = {
+  info: chalk.blue('ℹ'),
+  success: chalk.green('✔'),
+  warning: chalk.yellow('⚠'),
+  error: chalk.red('✖')
 }
 
 const WARNING = (text: string) => {
@@ -16,7 +17,7 @@ const ERROR = (text: string) => {
 }
 
 const SUCESS = (text: string) => {
-  console.log(chalk.greenBright(`${outType['ok']} [SUCESS] ${text}`));
+  console.log(chalk.greenBright(`${outType['success']} [SUCESS] ${text}`));
 }
 
 export { WARNING, ERROR, SUCESS }

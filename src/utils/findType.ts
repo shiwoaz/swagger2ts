@@ -27,7 +27,7 @@ const findType = (type: any, source: Schemas) => {
         typeArr = typeTranform(source['schemas'][typeTitle])
         return false
       } else {
-        console.log('none1');
+        // console.log('none1');
       }
 
     })
