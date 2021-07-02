@@ -2,7 +2,7 @@
   "name": "swagger2ts",
   "version": "1.0.0",
   "description": "Generate TypeScript service code from swagger",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "dependencies": {
     "@types/node": "^15.12.5",
     "ansi-styles": "^3.2.1",
@@ -62,7 +62,8 @@
   "scripts": {
     "test": "ts-node src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "s2t": "node lib/index.js"
   },
   "repository": {
     "type": "git",
