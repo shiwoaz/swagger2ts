@@ -1,6 +1,6 @@
 {
-  "name": "swagger2ts",
-  "version": "1.0.1",
+  "name": "swagger2tsovo",
+  "version": "1.0.2",
   "description": "Generate TypeScript service code from swagger",
   "main": "lib/index.js",
   "dependencies": {
@@ -70,13 +70,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shiwoaz/swagger2ts.git"
+    "url": "git+https://github.com/shiwoaz/swagger2tsovo.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shiwoaz/swagger2ts/issues"
+    "url": "https://github.com/shiwoaz/swagger2tsovo/issues"
   },
-  "homepage": "https://github.com/shiwoaz/swagger2ts#readme"
+  "homepage": "https://github.com/shiwoaz/swagger2tsovo#readme"
 }
